@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>thy-common-client</artifactId>
-    <version>1.0.0</version>
+    <artifactId>thy-common-empty</artifactId>
+
 
 </project>

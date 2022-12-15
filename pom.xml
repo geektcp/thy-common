@@ -40,6 +40,7 @@
         <module>thy-common-log</module>
         <module>thy-common-client</module>
         <module>thy-common-metric</module>
+        <module>thy-common-empty</module>
     </modules>
     <properties>
         <global.version>1.0</global.version>
@@ -144,7 +145,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.0.0</version>
+                        <version>3.4.1</version>
                         <inherited>true</inherited>
                         <executions>
                             <execution>
