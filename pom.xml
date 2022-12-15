@@ -40,7 +40,6 @@
         <module>thy-common-log</module>
         <module>thy-common-client</module>
         <module>thy-common-metric</module>
-        <module>thy-common-empty</module>
     </modules>
     <properties>
         <global.version>1.0</global.version>
@@ -120,12 +119,13 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>1.6.13</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                            <stagingProgressTimeoutMinutes>30</stagingProgressTimeoutMinutes>
                         </configuration>
                     </plugin>
                     <!-- Source -->
