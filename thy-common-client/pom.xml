@@ -11,5 +11,17 @@
 
     <artifactId>thy-common-client</artifactId>
     <version>1.0.0</version>
-
+    <url>https://github.com/geektcp/thy-common</url>
+    <scm>
+        <connection>scm:git:https://github.com/geektcp/thy-common</connection>
+        <developerConnection>scm:git:https://github.com/geektcp/thy-common.git</developerConnection>
+        <url>git:https://github.com/geektcp/thy-common.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>geektcp</name>
+            <email>geektcp@163.com</email>
+            <organization>https://github.com/geektcp</organization>
+        </developer>
+    </developers>
 </project>
