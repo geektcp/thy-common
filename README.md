@@ -1,4 +1,4 @@
-# okhoxi-common
+# thy-common
 ```
 common libraries for Java
 ```

@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author tanghaiyang
- * @date :2021-07-09
- * @description : 请求拦截，添加traceId 到mdc中
+ * @author tanghaiyang 2021-07-09
  */
 public class TraceInterceptor implements HandlerInterceptor {
 

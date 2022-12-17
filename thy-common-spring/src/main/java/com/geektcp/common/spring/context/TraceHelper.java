@@ -4,9 +4,7 @@ import java.util.UUID;
 
 /**
  *
- * @author tanghaiyang
- * @date :2021-07-09
- * @description : 生成 trace
+ * @author tanghaiyang 2021-07-09
  */
 public class TraceHelper {
 

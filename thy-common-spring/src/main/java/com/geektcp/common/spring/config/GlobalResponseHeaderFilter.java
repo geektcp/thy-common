@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 全局拦截器
+ * global interceptor
  * @author tanghaiyang
  * @date 2021/8/17 14:40
  */

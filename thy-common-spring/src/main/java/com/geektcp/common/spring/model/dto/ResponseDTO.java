@@ -19,27 +19,27 @@ import java.util.Map;
 @Data
 @Accessors(chain = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel(value = "接口响应数据", description = "用于返回接口响应的内容")
+@ApiModel(value = "api response data", description = "content")
 public class ResponseDTO<T> {
 
     @JSONField(ordinal = 1)
-    @ApiModelProperty(value = "请求响应代码")
+    @ApiModelProperty(value = "code")
     private Object code = 200;
 
     @JSONField(ordinal = 2)
-    @ApiModelProperty(value = "描述信息")
+    @ApiModelProperty(value = "description")
     private Object msg;
 
     @JSONField(ordinal = 3)
-    @ApiModelProperty(value = "请求是否成功：true（成功）；false（失败）", example = "true")
+    @ApiModelProperty(value = "status", example = "true")
     private boolean success = true;
 
-    @ApiModelProperty(value = "数据内容")
+    @ApiModelProperty(value = "data content")
     @JSONField(ordinal = 4)
     private T data;
 
     @JSONField(ordinal = 5)
-    @ApiModelProperty(value = "详细描述信息")
+    @ApiModelProperty(value = "detail")
     private Object subMsg;
 
     public ResponseDTO() {

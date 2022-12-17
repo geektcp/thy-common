@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 /**
  * @author tanghaiyang
  * @date :2021-07-09
- * @description : 拦截添加traceId
+ * @description : add traceId
  */
 @Configuration
 public class WebMvcTraceConfig extends WebMvcConfigurationSupport {

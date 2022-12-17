@@ -1,15 +1,15 @@
 package com.geektcp.common.mq.model.vo;
 
 /**
- * Created by tanghaiyang on 2021/1/16.
+ * @author Created by tanghaiyang on 2021/1/16.
  */
 public enum SchemaType {
-    VERTEX("实体", false, false),
-    VERTEX_MAIN("主实体", false, false),
-    EDGE("普通边", false, true),
-    EDGE_DETAIL("明细边", false, true),
-    EDGE_SUMMARY("汇总边", true, true),
-    EDGE_DM("挖掘边", true, true);
+    VERTEX("vertex", false, false),
+    VERTEX_MAIN("mainVertex", false, false),
+    EDGE("edge", false, true),
+    EDGE_DETAIL("edgeDetail", false, true),
+    EDGE_SUMMARY("edgeSummary", true, true),
+    EDGE_DEEP("edgeDeep", true, true);
 
     private String label;
     private boolean hidden;

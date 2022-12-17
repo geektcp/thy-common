@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public class QueryUtils extends LinkedHashMap<String, Object> {
     private static final long serialVersionUID = 1L;
-    //当前页码
+
     private int page = 1;
-    //每页条数
+
     private int limit = 10;
 
     public QueryUtils(Map<String, Object> params) {
@@ -34,7 +34,7 @@ public class QueryUtils extends LinkedHashMap<String, Object> {
             }
             this.put(key, value);
         }
-        //分页参数
+
         if (params.get("page") != null) {
             this.page = Integer.parseInt(params.get("page").toString());
             this.remove("page");

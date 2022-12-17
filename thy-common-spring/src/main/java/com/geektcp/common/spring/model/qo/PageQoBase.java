@@ -10,11 +10,7 @@ import javax.validation.Valid;
  */
 @Data
 public class PageQoBase {
-
-    /**
-     * 分页查询信息
-     */
     @Valid
-    @ApiModelProperty(value = "分页查询参数")
+    @ApiModelProperty(value = "page")
     protected PageQo page = new PageQo();
 }

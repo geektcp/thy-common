@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @author tanghaiyang
- * @date 2021/9/23 15:38
+ * @author tanghaiyang 2021/9/23 15:38
  */
 @Component
 public class TopicConfig {

@@ -71,7 +71,6 @@ public class EncryptUtils {
 
 
     /**
-     * 对称加密
      * @param source
      */
     public static String desEncrypt(String source) throws Exception {
@@ -84,7 +83,6 @@ public class EncryptUtils {
     }
 
     /**
-     * 对称解密
      * @param source
      */
     public static String desDecrypt(String source) throws Exception {
@@ -119,7 +117,6 @@ public class EncryptUtils {
         for (byte b : inStr) {
             stmp = Integer.toHexString(b & 0xFF);
             if (stmp.length() == 1) {
-                // 如果是0至F的单位字符串，则添加0
                 out.append("0").append(stmp);
             } else {
                 out.append(stmp);
@@ -131,7 +128,7 @@ public class EncryptUtils {
     private static byte[] hex2byte(byte[] b) {
         int size = 2;
         if ((b.length % size) != 0){
-            throw new IllegalArgumentException("长度不是偶数");
+            throw new IllegalArgumentException("size error");
         }
         byte[] b2 = new byte[b.length / 2];
         for (int n = 0; n < b.length; n += size) {

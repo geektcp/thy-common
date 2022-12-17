@@ -4,13 +4,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @author tanghaiyang
- * @date 2021/9/26 10:32
+ * @author tanghaiyang 2021/9/26 10:32
  */
 public class KafkaProductCountService {
-    /**
-     * spring-bean 单例模式下才能使用
-     */
     public static final ConcurrentHashMap<String, AtomicLong> sendCountMap = new ConcurrentHashMap<String, AtomicLong>();
 
     public static void countConcurrentMap(String key) {

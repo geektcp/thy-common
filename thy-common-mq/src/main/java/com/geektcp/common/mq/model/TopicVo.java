@@ -9,14 +9,8 @@ import lombok.Data;
 @Data
 public class TopicVo {
 
-    /**
-     * 主题名称
-     */
     private String name;
 
-    /**
-     * 分区数量
-     */
     private Integer partitions;
 
 

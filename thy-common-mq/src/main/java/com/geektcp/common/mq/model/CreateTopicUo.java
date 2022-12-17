@@ -3,8 +3,7 @@ package com.geektcp.common.mq.model;
 import lombok.Data;
 
 /**
- * @author tanghaiyang
- * @date 2021/9/15 13:47
+ * @author tanghaiyang 2021/9/15 13:47
  */
 @Data
 public class CreateTopicUo {

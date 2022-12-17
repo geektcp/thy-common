@@ -4,7 +4,7 @@ import lombok.NonNull;
 import org.springframework.data.domain.Sort;
 
 /**
- * Created by tanghaiyang on 2019/1/3.
+ * @author Created by tanghaiyang on 2019/1/3.
  */
 public class JQL {
 

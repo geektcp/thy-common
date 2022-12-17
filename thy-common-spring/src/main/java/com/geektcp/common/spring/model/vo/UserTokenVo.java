@@ -16,7 +16,7 @@ public class UserTokenVo {
     String username;
     String name;
     String id;
-    String type;    // user type
+    String type;
     String ip;
-    TokenType tokenType;  // token type
+    TokenType tokenType;
 }

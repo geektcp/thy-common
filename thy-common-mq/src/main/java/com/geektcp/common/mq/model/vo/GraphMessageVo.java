@@ -9,8 +9,6 @@ import java.util.List;
 
 /**
  * @author tanghaiyang on 2021/9/13 12:05.
- * <p>
- * 消息实体，图分析数据转换消息
  */
 @Data
 @Accessors(chain = true)
@@ -25,13 +23,7 @@ public class GraphMessageVo implements MessageVo {
     private SchemaType type;
 
 
-    /**
-     *  删除 顶点时，顶点id 集合
-     */
     private List<String> vertexKeys;
 
-    /**
-     *  删除 边时，边id 集合
-     */
     private List<String> edgeKeys;
 }

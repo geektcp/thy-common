@@ -7,8 +7,6 @@ import lombok.experimental.Accessors;
 
 /**
  * @author tanghaiyang on 2021/9/13 12:05.
- * <p>
- * 消息实体，支付消息
  */
 @Data
 @Accessors(chain = true)

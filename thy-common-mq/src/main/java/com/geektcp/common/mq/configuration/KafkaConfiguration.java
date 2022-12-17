@@ -11,9 +11,7 @@ import org.springframework.kafka.listener.ConsumerAwareListenerErrorHandler;
 import java.util.Properties;
 
 /**
- * kafka 配置中心
- * @author tanghaiyang
- * @date 2021/9/15 9:47
+ * @author tanghaiyang 2021/9/15 9:47
  */
 @Slf4j
 @Data
@@ -33,8 +31,8 @@ public class KafkaConfiguration {
     @Bean
     public ConsumerAwareListenerErrorHandler consumerAwareErrorHandler() {
         return (message, exception, consumer) -> {
-            log.error("消费异常, {}", message.getPayload());
-            log.error("消费异常", exception);
+            log.error("getPayload, {}", message.getPayload());
+            log.error("exception", exception);
             return null;
         };
 

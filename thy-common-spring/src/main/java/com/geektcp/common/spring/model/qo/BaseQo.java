@@ -5,14 +5,14 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * Created by tanghaiyang on 2021/1/16.
+ * @author Created by tanghaiyang on 2021/1/16.
  */
 @Data
 public class BaseQo {
     public static final String OPTION_DEBUG = "option_debug";
     public static final String OPTION_TIMEOUT = "option_timeout";
 
-    @ApiModelProperty(value = "内部可选参数")
+    @ApiModelProperty(value = "internal option")
     private JSONObject internalOption = new JSONObject();
 
     public boolean isDebug() {

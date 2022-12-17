@@ -17,20 +17,20 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-@ApiModel(value = "分页查询参数", description = "用于指定分页查询相关参数")
+@ApiModel(value = "page qo", description = "para")
 public class PageQo implements Serializable {
 
     private static final long serialVersionUID = 2737186511678863902L;
 
     @Min(value = 0)
-    @ApiModelProperty(value = "当前页", example = "0")
+    @ApiModelProperty(value = "page nunmber", example = "0")
     protected int pageNo = 0;
 
     @Min(value = 5)
-    @ApiModelProperty(value = "每页显示大小", example = "10")
+    @ApiModelProperty(value = "page size", example = "10")
     protected int pageSize = 10;
 
-    @ApiModelProperty(value = "排序字段列表")
+    @ApiModelProperty(value = "sort")
     protected List<Sort> sorts = new ArrayList<>();
 
     public void addSort(String property, Direction direction) {

@@ -3,8 +3,7 @@ package com.geektcp.common.spring.model.vo;
 import lombok.Data;
 
 /**
- * @author tanghaiyang
- * @date 2019/9/9 14:14
+ * @author tanghaiyang  2019/9/9 14:14
  **/
 @Data
 public class HttpContextInfo {

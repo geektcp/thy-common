@@ -33,10 +33,6 @@ public class TopicServiceImpl implements TopicService {
     @Autowired
     private KafkaListenerEndpointRegistry registry;
 
-    /**
-     * 主题列表
-     * @return  主题列表记录
-     */
     @Override
     public List<TopicVo> list() throws ExecutionException, InterruptedException {
         List<TopicVo> list = new ArrayList<>();
@@ -57,26 +53,17 @@ public class TopicServiceImpl implements TopicService {
        return list;
     }
 
-    /**
-     * 新增 主题
-     * @param uo 新增主题
-     * @return true 成功 |false 失败
-     */
+
     @Override
     public boolean createTopic(CreateTopicUo uo){
         String name = uo.getName();
         if(StringUtils.isBlank(name)){
-            log.error("请求参数name为空");
             return false;
         }
         Set<String> topicSet = null;
         try {
             topicSet = listTopicToSet();
-        } catch (InterruptedException e) {
-            log.error("查询topic异常" ,e);
-            return false;
-        } catch (ExecutionException e) {
-            log.error("查询topic异常" ,e);
+        } catch (Exception e) {
             return false;
         }
         if(topicSet.contains(name)){
@@ -100,18 +87,12 @@ public class TopicServiceImpl implements TopicService {
             // 如果future 是异常  future.isCompletedExceptionally() = true
             flag = !future.isCompletedExceptionally();
         }catch (Exception e){
-            log.error("创建topic，获取结果异常", e);
             return false;
         }
         kafkaAdminClient.close();
         return flag;
     }
 
-    /**
-     * 删除 分区
-     * @param name 主题名称
-     * @return true 删除成功
-     */
     @Override
     public boolean deleteTopic(String name) {
         List<String> topicNames = Arrays.asList(name);
@@ -119,14 +100,11 @@ public class TopicServiceImpl implements TopicService {
         try {
             topicSet = listTopicToSet();
         } catch (InterruptedException e) {
-            log.error("查询topic异常" ,e);
             return false;
         } catch (ExecutionException e) {
-            log.error("查询topic异常" ,e);
             return false;
         }
         if(!topicSet.contains(name)){
-            log.error("不存在topic={}", name);
             return false;
         }
         DeleteTopicsResult result = kafkaAdminClient.deleteTopics(topicNames);
@@ -135,20 +113,14 @@ public class TopicServiceImpl implements TopicService {
         try {
             future.get();
             flag = !future.isCompletedExceptionally();
-        } catch (InterruptedException e) {
-            log.error("删除topic异常", e);
-            return false;
-        } catch (ExecutionException e) {
-            log.error("删除topic异常", e);
+        } catch (Exception e) {
             return false;
         }
         if(!flag){
-            log.error("删除topic失败");
             return flag;
         }
         List<MessageListenerContainer> containers = (List<MessageListenerContainer>) registry.getAllListenerContainers();
         if(CollectionUtil.isEmpty(containers)){
-            log.error("没有获取到监听");
             return true;
         }
         lable : for (MessageListenerContainer container : containers) {
@@ -167,23 +139,12 @@ public class TopicServiceImpl implements TopicService {
         return true;
     }
 
-
-    /**
-     * 获取所有主题名称
-     * @return 主题名称
-     * @throws InterruptedException 异常
-     * @throws ExecutionException 异常
-     */
     private Set<String> listTopicToSet() throws InterruptedException, ExecutionException {
         ListTopicsOptions listTopicsOptions = new ListTopicsOptions();
-        // 不展示 内部topic
         listTopicsOptions.listInternal(false);
         ListTopicsResult result = kafkaAdminClient.listTopics(listTopicsOptions);
         Set<String> topics = result.names().get();
         return topics;
     }
-
-
-
 
 }

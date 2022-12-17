@@ -321,7 +321,7 @@ public class JwtTokenUtils implements Serializable {
             );
             String newToken = generateToken(userTokenVo, EXTEND_TIME);
             if(StringUtils.isBlank(newToken)){
-                log.error("创建新token 失败");
+                log.error("generate token failed!");
                 result.put("flag", false);
                 return result;
             }

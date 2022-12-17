@@ -21,16 +21,16 @@ import java.util.Objects;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel(value = "分页查询响应数据", description = "用于返回分页查询响应的内容")
+@ApiModel(value = "page data", description = "return content")
 public class PageResponseDTO<T> {
 
-    @ApiModelProperty(value = "状态码")
+    @ApiModelProperty(value = "status code")
     private Object code = 200;
 
-    @ApiModelProperty(value = "备注信息")
+    @ApiModelProperty(value = "description")
     private String msg;
 
-    @ApiModelProperty(value = "请求响应数据")
+    @ApiModelProperty(value = "response data")
     private PagePayload<T> data;
 
     public PageResponseDTO() {
@@ -112,26 +112,26 @@ public class PageResponseDTO<T> {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    @ApiModel(value = "分页接口数据", description = "用于表示分页接口内容")
+    @ApiModel(value = "payload data", description = "content")
     public static class PagePayload<T> {
 
-        @ApiModelProperty(value = "总记录数", example = "100")
+        @ApiModelProperty(value = "total", example = "100")
         @JSONField(ordinal = 1)
         private long total;
 
-        @ApiModelProperty(value = "当前页", example = "1")
+        @ApiModelProperty(value = "current number", example = "1")
         @JSONField(ordinal = 2)
         private int pageNum = 1;
 
-        @ApiModelProperty(value = "每页显示记录数", example = "10")
+        @ApiModelProperty(value = "page size", example = "10")
         @JSONField(ordinal = 3)
         private int pageSize = 10;
 
-        @ApiModelProperty(value = "总页数", example = "10")
+        @ApiModelProperty(value = "total page", example = "10")
         @JSONField(ordinal = 4)
         private int pages;
 
-        @ApiModelProperty(value = "数据内容")
+        @ApiModelProperty(value = "payload")
         @JSONField(ordinal = 5)
         private List<T> list;
 

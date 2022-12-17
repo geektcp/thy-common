@@ -1,7 +1,7 @@
 package com.geektcp.common.spring.constant;
 
 /**
- * Created by tanghaiyang on 2021/1/17.
+ * @author Created by tanghaiyang on 2021/1/17.
  */
 public class MediaType {
 

@@ -336,87 +336,30 @@ public class DateUtils {
         String s = "";
         switch (w) {
             case 0:
-                s = "星期天";
+                s = "Sunday";
                 break;
             case 1:
-                s = "星期一";
+                s = "Monday";
                 break;
             case 2:
-                s = "星期二";
+                s = "Tuesday";
                 break;
             case 3:
-                s = "星期三";
+                s = "Wednesday";
                 break;
             case 4:
-                s = "星期四";
+                s = "Thursday ";
                 break;
             case 5:
-                s = "星期五";
+                s = "Friday";
                 break;
             case 6:
-                s = "星期六";
+                s = "Saturday";
         }
 
         return s;
     }
 
-    public static String getWeekz(String sdate) {
-        int w = getWeekNum(sdate);
-        String s = "";
-        switch (w) {
-            case 0:
-                s = "周日";
-                break;
-            case 1:
-                s = "周一";
-                break;
-            case 2:
-                s = "周二";
-                break;
-            case 3:
-                s = "周三";
-                break;
-            case 4:
-                s = "周四";
-                break;
-            case 5:
-                s = "周五";
-                break;
-            case 6:
-                s = "周六";
-        }
-
-        return s;
-    }
-
-    public static String getWeekz1(String sdate) {
-        int w = getWeekNum(sdate);
-        String s = "";
-        switch (w) {
-            case 0:
-                s = "日";
-                break;
-            case 1:
-                s = "一";
-                break;
-            case 2:
-                s = "二";
-                break;
-            case 3:
-                s = "三";
-                break;
-            case 4:
-                s = "四";
-                break;
-            case 5:
-                s = "五";
-                break;
-            case 6:
-                s = "六";
-        }
-
-        return s;
-    }
 
     public static boolean isSameWeekDates(Date date1, Date date2) {
         Calendar cal1 = Calendar.getInstance();
@@ -992,13 +935,13 @@ public class DateUtils {
 
         String s;
         if (day > 0L) {
-            s = day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
+            s = day + "day" + hour + "hour" + minute + "minute" + second + "second";
         } else if (hour > 0L) {
-            s = hour + "小时" + minute + "分钟" + second + "秒";
+            s = hour + "hour" + minute + "minute" + second + "second";
         } else if (minute > 0L) {
-            s = minute + "分钟" + second + "秒";
+            s = minute + "minute" + second + "second";
         } else {
-            s = second + "秒";
+            s = second + "second";
         }
 
         return s;

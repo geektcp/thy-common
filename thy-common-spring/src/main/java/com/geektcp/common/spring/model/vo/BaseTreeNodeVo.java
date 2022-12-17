@@ -11,20 +11,20 @@ import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
- * Created by tanghaiyang on 2019/1/8.
+ * @author Created by tanghaiyang on 2019/1/8.
  */
 @Data
 @AllArgsConstructor
 @MappedSuperclass
 public class BaseTreeNodeVo<T extends BaseTreeNodeVo> implements Serializable{
 
-    @ApiModelProperty(value = "资源ID", example = "0")
+    @ApiModelProperty(value = "node id", example = "0")
     protected Long id;
 
-    @ApiModelProperty(value = "用户父ID", example = "8")
+    @ApiModelProperty(value = "parent id", example = "8")
     protected Long parentId;
 
-    @ApiModelProperty(value = "子节点列表")
+    @ApiModelProperty(value = "child node")
     private LinkedList<T> children;
 
     public BaseTreeNodeVo(){

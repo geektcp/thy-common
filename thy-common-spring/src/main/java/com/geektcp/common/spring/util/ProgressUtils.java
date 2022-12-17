@@ -15,15 +15,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * @author tanghaiyang
- * @date 2020/1/3 10:34
- * <p>
- * 进度条的使用流程：
- * 1. 调用start标记任务开始
- * 2. 可选步骤 --- 调用processing标记任务正在进行，同时设置totalSize
- * 3. 调用setCurrentSize标记任务当前的进度计数
- * <p>
- * 如果上述任一流程出现进度条异常，就调用fail标记任务异常
+ * @author tanghaiyang 2020/1/3 10:34
  **/
 @Component
 public class ProgressUtils {
@@ -35,8 +27,6 @@ public class ProgressUtils {
     private Object lock = new Object();
 
     /**
-     * 开始进度
-     *
      * @param key
      * @param title
      * @return
@@ -49,8 +39,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 开始进度
-     *
      * @param key
      * @param title
      * @param totalSize
@@ -63,8 +51,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 开始进度
-     *
      * @param key
      * @param title
      * @param totalSize
@@ -78,8 +64,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 开始进度
-     *
      * @param key
      * @param title
      * @param totalSize
@@ -94,8 +78,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 初始化进度开始的ProgressVo
-     *
      * @param key
      * @param title
      * @param totalSize
@@ -114,8 +96,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度进行中
-     *
      * @param key
      * @param totalSize
      * @return
@@ -131,8 +111,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度进行中
-     *
      * @param key
      * @param totalSize
      * @param expireTime
@@ -149,8 +127,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度进行中
-     *
      * @param key
      * @param totalSize
      * @param expireTime
@@ -168,8 +144,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 初始化进度进行中的ProgressVo
-     *
      * @param key
      * @param totalSize
      * @return
@@ -192,8 +166,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @return
@@ -208,8 +180,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param expireTime
@@ -224,8 +194,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param expireTime
@@ -241,8 +209,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param append
@@ -257,8 +223,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param append
@@ -274,8 +238,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param append
@@ -292,8 +254,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param append
@@ -309,8 +269,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param append
@@ -327,8 +285,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度失败
-     *
      * @param key
      * @param msg
      * @param append
@@ -346,8 +302,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 初始化进度失败的ProgressVo
-     *
      * @param key
      * @param msg
      * @param append
@@ -367,8 +321,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 初始化ProgressVo
-     *
      * @param progressVo
      * @param msg
      * @param append
@@ -386,8 +338,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度成功
-     *
      * @param key
      * @param data
      * @return
@@ -402,8 +352,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度成功
-     *
      * @param key
      * @param data
      * @param expireTime
@@ -418,8 +366,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 进度成功
-     *
      * @param key
      * @param data
      * @param expireTime
@@ -435,8 +381,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 初始化进度成功的ProgressVo
-     *
      * @param key
      * @param data
      * @return
@@ -454,8 +398,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 设置进度条显示的当前计数
-     *
      * @param key
      * @param increaseSize
      * @return
@@ -471,8 +413,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 设置进度条显示的当前计数
-     *
      * @param key
      * @param increaseSize
      * @param expireTime
@@ -489,8 +429,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 设置进度条显示的当前计数
-     *
      * @param key
      * @param increaseSize
      * @param expireTime
@@ -508,8 +446,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 设置进度条显示的当前计数
-     *
      * @param key
      * @param increaseSize
      * @param failMessage
@@ -527,8 +463,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 设置进度条显示的当前计数
-     *
      * @param key
      * @param increaseSize
      * @param failMessage
@@ -547,8 +481,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 设置进度条显示的当前计数
-     *
      * @param key
      * @param increaseSize
      * @param failMessage
@@ -568,8 +500,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 初始化设置进度条显示的当前计数的ProgressVo
-     *
      * @param key
      * @param increaseSize
      * @param failMessage
@@ -582,14 +512,12 @@ public class ProgressUtils {
             return null;
         }
         progressVo.setCurrentSize(progressVo.getCurrentSize() + increaseSize);
-        // 进度递增的过程中，有失败的信息
         if (!StringUtils.isEmpty(failMessage)) {
             progressVo.setStatus(ProgressStatus.FAILED.getCode());
             initProgressVo(progressVo, failMessage, append);
         }
         // 进度条完成
         if (progressVo.getCurrentSize().equals(progressVo.getTotalSize())) {
-            // 当且仅当进度条的状态是非失败状态的时候，才能把状态设置成完成
             if (!progressVo.getStatus().equals(ProgressStatus.FAILED.getCode())) {
                 progressVo.setStatus(ProgressStatus.COMPLETED.getCode());
             }
@@ -622,9 +550,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 判断是否可以开始统计进度
-     * 如果存在正在进行的统计，就不允许再执行统计进度的操作
-     *
      * @param key
      * @return
      */
@@ -640,9 +565,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 判断是否可以开始统计进度
-     * 如果存在正在进行的统计，就不允许再执行统计进度的操作
-     *
      * @param patternKey
      * @return
      */
@@ -660,8 +582,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 查询进度条列表
-     *
      * @param patternKey
      * @return
      */
@@ -679,8 +599,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 删除进度条列表
-     *
      * @param keys
      */
     public void delete(List<String> keys) {
@@ -692,8 +610,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 查询指定的进度信息
-     *
      * @param key
      * @return
      */
@@ -705,8 +621,6 @@ public class ProgressUtils {
     }
 
     /**
-     * 批量查询进度信息
-     *
      * @param keys
      * @return
      */

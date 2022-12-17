@@ -6,7 +6,7 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 
 /**
- * Created by tanghaiyang on 2018/12/25.
+ * @author Created by tanghaiyang on 2018/12/25.
  */
 @NoRepositoryBean
 public interface JpaRepo<T> extends JpaRepository<T, Long>,

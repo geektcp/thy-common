@@ -15,10 +15,14 @@ public class IPUtils {
     }
 
     /**
-     * 获取 IP地址
-     * 使用 Nginx等反向代理软件， 则不能通过 request.getRemoteAddr()获取 IP地址
-     * 如果使用了多级反向代理的话，X-Forwarded-For的值并不止一个，而是一串IP地址，
-     * X-Forwarded-For中第一个非 unknown的有效IP字符串，则为真实IP地址
+     * get really source IP
+     * use multi nginx server to reverse http request,we can not get really Ip
+     * with request.getRemoteAddr(), or other header:
+     * Proxy-Client-IP
+     * WL-Proxy-Client-IP
+     * X-Real-IP
+     * x-forwarded-for
+     *
      */
     public static String getIp(HttpServletRequest request) {
         String ip = request.getHeader("X-Real-IP");

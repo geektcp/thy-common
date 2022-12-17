@@ -13,8 +13,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 /**
- * 消息发送
- *
  * @author tanghaiyang on 2021/9/13 11:09.
  */
 @Slf4j
@@ -47,8 +45,6 @@ public class CommonProducerImpl implements CommonProducer {
         try {
             kafkaTemplate.send(topic, data).get();
         } catch (Exception e) {
-            log.error("消息发送异常", e);
-            log.error("消息发送异常,topic: {}, data={} ", topic, JSONUtil.toJsonStr(data));
             flag = false;
         }
 //        send(topic, partition, key, data, SYNC);
@@ -108,9 +104,6 @@ public class CommonProducerImpl implements CommonProducer {
         }
         if (MessageType.MSG_OPERATE.equals(type)) {
             return topicConfig.logOperateTopic;
-        }
-        if (MessageType.MSG_ABILITY.equals(type)) {
-            return topicConfig.authResourceTopic;
         }
         log.error("未知消息类型");
         return null;

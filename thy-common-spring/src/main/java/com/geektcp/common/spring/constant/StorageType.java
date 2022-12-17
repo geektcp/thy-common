@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by tanghaiyang on 2018/8/17.
+ * @author Created by tanghaiyang on 2018/8/17.
  */
 public enum StorageType {
     GDB("GDB", false, new String[]{}),

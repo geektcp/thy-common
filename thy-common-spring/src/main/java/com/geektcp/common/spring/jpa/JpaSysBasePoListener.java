@@ -9,10 +9,7 @@ import javax.persistence.PreUpdate;
 import java.util.Date;
 
 /**
- * SysBasePo  保存通用字段赋值监听
- *
- * @author tanghaiyang
- * @date 2021/8/30 11:18
+ * @author tanghaiyang 2021/8/30 11:18
  */
 public class JpaSysBasePoListener {
 
