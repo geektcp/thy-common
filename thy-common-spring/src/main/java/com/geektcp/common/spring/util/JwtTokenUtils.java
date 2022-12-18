@@ -103,16 +103,11 @@ public class JwtTokenUtils implements Serializable {
             final Claims claims = getClaimsFromToken(token);
             return claims.getExpiration();
         } catch (Exception e) {
-            log.error("获取token过期时间异常", e);
+            log.error("exception", e);
             throw new BaseException(CommonExceptionStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    /**
-     * 根据username 使token过期，在修改用户密码时使用
-     * @param username
-     * @return
-     */
     public boolean expirationTokenByUsername(String username){
         Set<String> keys = redisTemplate.keys("*"+username+"*");
         if(CollectionUtils.isNotEmpty(keys)){
@@ -130,12 +125,9 @@ public class JwtTokenUtils implements Serializable {
     public Boolean invalid(String token, TokenType tokenType) {
         String username = this.getUsernameFromToken(token);
         String tokenID = this.getValueFromToken(token, CLAIM_KEY_ID);
-
         List<String> keys = new ArrayList<>();
-        // 删除用户token记录
         String key = getKey(IPUtils.getIp(), username, tokenID, tokenType);
         keys.add(key);
-        // 删除用户权限数据
         keys.add("st:" + username + ":permission");
         redisTemplate.delete(keys);
 
@@ -205,9 +197,6 @@ public class JwtTokenUtils implements Serializable {
             redisTemplate.opsForValue().set(strKey, token, extendTime, TimeUnit.SECONDS);
         }
         long t2 = System.currentTimeMillis();
-        log.info("创建token耗时={}", t2-t1);
-        log.info("缓存redis耗时={}", t2-t3);
-        log.info("生成token={}", t3-t4);
         return token;
     }
 
@@ -279,18 +268,14 @@ public class JwtTokenUtils implements Serializable {
         if (username.isEmpty() || tokenID.isEmpty()) {
             return false;
         }
-        // 过期判断
         if (isTokenExpired(token)) {
             return false;
         }
-
-        // 非本系统登录验证,如OAuth2，不需要做登出判断
         String oauthType = getValueFromToken(token, CLAIM_KEY_OAUTHTYPE);
         if (!StringUtils.isEmpty(oauthType)) {
             return true;
         }
 
-        // 本系统，判断是否已经登出
         String key = getKey(IPUtils.getIp(), username, tokenID, tokenType);
         Object existToken = redisTemplate.opsForValue().get(key);
         return (token.equals(existToken));
@@ -306,7 +291,6 @@ public class JwtTokenUtils implements Serializable {
         final Date expirationDate = getExpirationDateFromToken(token);
         Date checkDate = DateUtils.getPreMin(new Date(), 30);
         if(expirationDate.before(checkDate)){
-            // 过期时间小于30分钟， 重新生成token ，过期时间调整为60分钟
             final String username = getUsernameFromToken(token);
             final String tokenID = getValueFromToken(token, CLAIM_KEY_ID);
             String key = getKey(IPUtils.getIp(), username, tokenID, tokenType);

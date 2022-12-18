@@ -2,54 +2,26 @@ package com.geektcp.common.metric.model;
 
 
 /**
- * @author tanghaiyang
- * @date 2021/7/7 11:14
+ * @author tanghaiyang 021/7/7 11:14
  */
 public class MonitorInfoVo {
 
-    /**
-     * 可使用内存
-     */
     private long totalMemory;
 
-    /**
-     * 剩余内存
-     */
     private long freeMemory;
 
-    /**
-     * 最大可使用内存
-     */
     private long maxMemory;
 
-    /**
-     * 总的物理内存
-     */
     private long totalMemorySize;
 
-    /**
-     * 剩余的物理内存
-     */
     private long freePhysicalMemorySize;
 
-    /**
-     * 已使用的物理内存
-     */
     private long usedMemory;
 
-    /**
-     * 活跃线程 总数
-     */
     private int activeThread;
 
-    /**
-     * 所有线程总数
-     */
     private long totalThread;
 
-    /**
-     * cpu使用率 0到1直接， 可能出现大于1的情况
-     */
     private double cpuRatio;
 
 

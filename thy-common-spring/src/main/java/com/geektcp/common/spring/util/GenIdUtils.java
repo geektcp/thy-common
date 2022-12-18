@@ -1,5 +1,6 @@
 package com.geektcp.common.spring.util;
 
+import com.geektcp.common.core.exception.BaseException;
 import com.geektcp.common.core.util.IdUtils;
 import com.geektcp.common.spring.model.po.Po;
 import lombok.extern.slf4j.Slf4j;
@@ -25,4 +26,16 @@ public class GenIdUtils implements GenId<String> {
         String prefix = StringUtils.substringAfter(tableName, "des_");
         return IdUtils.getId(prefix);
     }
+
+    public String genDefaultId(String table, String column) {
+        try {
+            String prefix = table;
+            Thread.sleep(1);
+            return IdUtils.getId(prefix);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new BaseException(e);
+        }
+    }
+
 }

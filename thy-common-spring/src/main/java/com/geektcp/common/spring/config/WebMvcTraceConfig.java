@@ -7,9 +7,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
- * @author tanghaiyang
- * @date :2021-07-09
- * @description : add traceId
+ * @author tanghaiyang 2021-07-09
  */
 @Configuration
 public class WebMvcTraceConfig extends WebMvcConfigurationSupport {

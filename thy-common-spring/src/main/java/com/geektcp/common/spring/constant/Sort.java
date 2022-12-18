@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel(value = "排序规则", description = "按指定字段进行升序或降序排列")
+@ApiModel(value = "sort rule", description = "desc or asc")
 public class Sort {
 
     @JSONField(ordinal = 1)
-    @ApiModelProperty(value = "排序字段属性名称", example = "id")
+    @ApiModelProperty(value = "sort field", example = "id")
     private String property;
 
     @JSONField(ordinal = 2)
-    @ApiModelProperty(value = "排序方向：ASC(升序)；DESC(降序)", example = "DESC")
+    @ApiModelProperty(value = "direction：ASC,DESC", example = "DESC")
     private Direction direction;
 
 }
