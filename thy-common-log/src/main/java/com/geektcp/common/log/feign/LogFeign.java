@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Service
 public interface LogFeign {
 
-    @PostMapping("/syslog/add")
+    @PostMapping("/log/add")
     ResponseDTO<JSONObject> insert(@RequestBody SysLogDo uo);
 }
