@@ -12,6 +12,10 @@
     <artifactId>thy-common-core</artifactId>
     <version>${global.version}</version>
 
+    <properties>
+        <global.version>1.0.4</global.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
