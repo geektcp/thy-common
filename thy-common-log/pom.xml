@@ -10,21 +10,18 @@
         <version>1.2</version>
     </parent>
     <artifactId>thy-common-log</artifactId>
-    <version>${global.version}</version>
+    <version>1.0.5</version>
 
-    <properties>
-        <global.version>1.0.4</global.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>com.geektcp.common</groupId>
             <artifactId>thy-common-core</artifactId>
-            <version>${global.version}</version>
+            <version>1.0.5</version>
         </dependency>
         <dependency>
             <groupId>com.geektcp.common</groupId>
             <artifactId>thy-common-spring</artifactId>
-            <version>${global.version}</version>
+            <version>1.0.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

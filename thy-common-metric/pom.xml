@@ -10,8 +10,6 @@
         <version>1.2</version>
     </parent>
     <artifactId>thy-common-metric</artifactId>
-    <version>${global.version}</version>
-    <properties>
-        <global.version>1.0.4</global.version>
-    </properties>
+    <version>1.0.5</version>
+
 </project>

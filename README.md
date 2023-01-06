@@ -8,3 +8,7 @@ common libraries for Java
 date && mvn clean javadoc:jar deploy -P release,gpg && date
 ```
 
+# version
+```
+must use number, do not use variable
+```
