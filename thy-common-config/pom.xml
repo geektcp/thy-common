@@ -4,21 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <url>https://github.com/geektcp/thy-common</url>
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>thy-common</artifactId>
         <groupId>com.geektcp.common</groupId>
-        <version>1.1</version>
+        <version>1.2</version>
     </parent>
 
     <artifactId>thy-common-config</artifactId>
-    <version>1.0.2</version>
+    <version>${global.version}</version>
 
     <dependencies>
         <dependency>
             <groupId>com.geektcp.common</groupId>
             <artifactId>thy-common-core</artifactId>
-            <version>1.0.0</version>
+            <version>${global.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
