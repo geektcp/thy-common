@@ -10,7 +10,7 @@
         <version>1.2</version>
     </parent>
     <artifactId>thy-common-spring</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 
     <properties>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
@@ -20,7 +20,7 @@
         <dependency>
             <groupId>com.geektcp.common</groupId>
             <artifactId>thy-common-core</artifactId>
-            <version>1.0.6</version>
+            <version>1.0.7</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -216,6 +216,11 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
             <version>1.13.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>11.0</version>
         </dependency>
     </dependencies>
 
