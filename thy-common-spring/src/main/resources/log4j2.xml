@@ -10,7 +10,13 @@
             <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}]-[%p]-[%X{traceId}]-[%l]-%m%n"/>
         </Console>
 
-        <RollingFile name="DEBUG" fileName="${logPath}/logs/debug.log" advertise="true" filePattern="${logPath}/logs/debug-%d{yyyy-MM-dd}.log">
+        <RollingFile
+                name="DEBUG"
+                fileName="${logPath}/logs/debug.log"
+                advertise="true"
+                filePattern="${logPath}/logs/debug-%d{yyyy-MM-dd}.log"
+                immediateFlush="false"
+        >
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Filters>
                 <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
@@ -22,7 +28,13 @@
             </Policies>
         </RollingFile>
 
-        <RollingFile name="INFO" fileName="${logPath}/logs/info.log" advertise="true" filePattern="${logPath}/logs/info-%d{yyyy-MM-dd}.log">
+        <RollingFile
+                name="INFO"
+                fileName="${logPath}/logs/info.log"
+                advertise="true"
+                filePattern="${logPath}/logs/info-%d{yyyy-MM-dd}.log"
+                immediateFlush="false"
+        >
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Filters>
                 <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -33,7 +45,13 @@
             </Policies>
         </RollingFile>
 
-        <RollingFile name="ERROR" fileName="${logPath}/logs/error.log" advertise="true" filePattern="${logPath}/logs/error-%d{yyyy-MM-dd}.log">
+        <RollingFile
+                name="ERROR"
+                fileName="${logPath}/logs/error.log"
+                advertise="true"
+                filePattern="${logPath}/logs/error-%d{yyyy-MM-dd}.log"
+                immediateFlush="false"
+        >
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Filters>
                 <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -43,7 +61,14 @@
                 <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
             </Policies>
         </RollingFile>
-        <RollingFile name="WARN" fileName="${logPath}/logs/warn.log" advertise="true" filePattern="${logPath}/logs/error-%d{yyyy-MM-dd}.log">
+
+        <RollingFile
+                name="WARN"
+                fileName="${logPath}/logs/warn.log"
+                advertise="true"
+                filePattern="${logPath}/logs/error-%d{yyyy-MM-dd}.log"
+                immediateFlush="false"
+        >
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Filters>
                 <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -54,6 +79,7 @@
             </Policies>
         </RollingFile>
     </Appenders>
+
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console"/>
@@ -66,9 +92,5 @@
             <AppenderRef ref="Console"/>
         </Logger>
 
-        <Logger name="org.elasticsearch"  additivity="false">
-            <AppenderRef ref="ERROR"/>
-            <AppenderRef ref="WARN"/>
-        </Logger>
     </Loggers>
 </Configuration>
