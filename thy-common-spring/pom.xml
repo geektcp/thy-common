@@ -10,7 +10,7 @@
         <version>1.2</version>
     </parent>
     <artifactId>thy-common-spring</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8.RELEASE</version>
 
     <properties>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
@@ -20,7 +20,7 @@
         <dependency>
             <groupId>com.geektcp.common</groupId>
             <artifactId>thy-common-core</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

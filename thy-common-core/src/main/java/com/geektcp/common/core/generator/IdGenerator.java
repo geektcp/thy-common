@@ -129,5 +129,4 @@ public class IdGenerator {
         return getInstance().nextId();
     }
 
-
 }
