@@ -33,7 +33,6 @@ public class ListUnorderedST<Key, Value> implements UnorderedST<Key, Value> {
     @Override
     public void put(Key key, Value value) {
         Node cur = first;
-        // 如果在链表中找到节点的键等于 key 就更新这个节点的值为 value
         while (cur != null) {
             if (cur.key.equals(key)) {
                 cur.value = value;
@@ -41,7 +40,6 @@ public class ListUnorderedST<Key, Value> implements UnorderedST<Key, Value> {
             }
             cur = cur.next;
         }
-        // 否则使用头插法插入一个新节点
         first = new Node(key, value, first);
     }
 

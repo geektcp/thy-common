@@ -59,14 +59,12 @@ public class LinearProbingHashST<Key, Value> implements UnorderedST<Key, Value> 
         while (keys[i] != null && !key.equals(keys[i]))
             i = (i + 1) % M;
 
-        // 不存在，直接返回
         if (keys[i] == null)
             return;
 
         keys[i] = null;
         values[i] = null;
 
-        // 将之后相连的键值对重新插入
         i = (i + 1) % M;
         while (keys[i] != null) {
             Key keyToRedo = keys[i];

@@ -323,7 +323,6 @@ public class RedBlackTree<K extends Comparable<K>, V> {
         return printStr;
     }
 
-    /////////////////////
     private int getCompare(Node node, K key) {
         return key.compareTo(node.key);
     }

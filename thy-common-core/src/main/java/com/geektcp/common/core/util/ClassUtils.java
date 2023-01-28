@@ -9,18 +9,18 @@ public class ClassUtils {
         if (className == null) {
             return null;
         }
-        Class<?> klass = null;
+        Class<?> cls = null;
         try {
-            klass = Class.forName(className);
+            cls = Class.forName(className);
         } catch (ClassNotFoundException ex) {
             //log.debug("Exception while loading class: " + className, ex);
         }
-        return klass;
+        return cls;
     }
 
     public static String jarForClass(String className) {
-        Class<?> klass = loadClass(className);
-        return jarForClass(klass);
+        Class<?> cls = loadClass(className);
+        return jarForClass(cls);
     }
 
     public static String jarForClass(Class<?> klass) {

@@ -52,12 +52,10 @@ public class BinarySearchOrderedST<Key extends Comparable<Key>, Value> implement
     @Override
     public void put(Key key, Value value) {
         int index = rank(key);
-        // 如果找到已经存在的节点键为 key，就更新这个节点的值为 value
         if (index < N && keys[index].compareTo(key) == 0) {
             values[index] = value;
             return;
         }
-        // 否则在数组中插入新的节点，需要先将插入位置之后的元素都向后移动一个位置
         for (int j = N; j > index; j--) {
             keys[j] = keys[j - 1];
             values[j] = values[j - 1];
