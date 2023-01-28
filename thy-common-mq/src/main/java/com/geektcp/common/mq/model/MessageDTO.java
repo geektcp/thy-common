@@ -2,7 +2,7 @@ package com.geektcp.common.mq.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.geektcp.common.core.util.IdUtils;
+import com.geektcp.common.core.generator.IdGenerator;
 import com.geektcp.common.mq.constant.MessageType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +22,7 @@ public class MessageDTO<T> {
 
     @NotNull
     @JSONField(ordinal = 1)
-    private Long id = IdUtils.getId();
+    private Long id = IdGenerator.getId();
 
     @NotNull
     @JSONField(ordinal = 2)

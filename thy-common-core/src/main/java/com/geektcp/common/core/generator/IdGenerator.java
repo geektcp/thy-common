@@ -1,12 +1,16 @@
-package com.geektcp.common.core.util;
+package com.geektcp.common.core.generator;
+
 
 import java.util.Objects;
 
 /**
- * @author tanghaiyang on 2018/2/27 10:10.
+ * @author geektcp
+ * email: geektcp@163.com
+ * https://github.com/geektcp/example-id-generator
+ * <p>
+ * IdGenerator: thread-safe and repeat it anywhere without duplicate id
  */
-@SuppressWarnings("all")
-public class IdUtils {
+public class IdGenerator {
 
     private static final long START_TIME = 1420041600000L;
     private static final long WORKER_ID_BITS = 5L;
@@ -15,7 +19,7 @@ public class IdUtils {
     private static final long MAX_DATA_CENTER_ID = -1L ^ (-1L << DATA_CENTER_ID_BITS);
     private static final long SEQUENCE_BITS = 12L;
     private static final long WORKER_ID_SHIFT = SEQUENCE_BITS;
-    private static final long DATA_CENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
+    private static final long CENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
     private static final long TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATA_CENTER_ID_BITS;
     private static final long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
 
@@ -23,21 +27,24 @@ public class IdUtils {
     private static long LAST_TIMESTAMP = -1L;
 
     private long workerId;
-    private long dataCenterId;
+    private long centerId;
 
-    private static IdUtils instance;
+    private static IdGenerator instance;
 
-    private IdUtils(long workerId, long datacenterId) {
+    private static String SPLIT = "_";
+
+    // private
+    private IdGenerator(long workerId, long centerId) {
         if (workerId > MAX_WORKER_ID || workerId < 0) {
             throw new IllegalArgumentException(
                     String.format("worker Id can't be greater than %d or less than 0", MAX_WORKER_ID));
         }
-        if (datacenterId > MAX_DATA_CENTER_ID || datacenterId < 0) {
+        if (centerId > MAX_DATA_CENTER_ID || centerId < 0) {
             throw new IllegalArgumentException(
                     String.format("datacenter Id can't be greater than %d or less than 0", MAX_DATA_CENTER_ID));
         }
         this.workerId = workerId;
-        this.dataCenterId = datacenterId;
+        this.centerId = centerId;
     }
 
     private synchronized long nextId() {
@@ -59,7 +66,7 @@ public class IdUtils {
         LAST_TIMESTAMP = timestamp;
 
         return ((timestamp - START_TIME) << TIMESTAMP_LEFT_SHIFT)
-                | (dataCenterId << DATA_CENTER_ID_SHIFT)
+                | (centerId << CENTER_ID_SHIFT)
                 | (workerId << WORKER_ID_SHIFT)
                 | SEQUENCE;
     }
@@ -76,19 +83,51 @@ public class IdUtils {
         return System.currentTimeMillis();
     }
 
-    public static IdUtils getInstance() {
+
+    // for new Object
+    public Long getNextId() {
+        return this.nextId();
+    }
+
+    // static
+    public static IdGenerator setInstance(long workerId, long centerId) {
+        instance = new IdGenerator(workerId, centerId);
+        return instance;
+    }
+
+    public static IdGenerator getInstance(long workerId, long centerId) {
         if (Objects.isNull(instance)) {
-            instance = new IdUtils(10L, 0L);
+            instance = new IdGenerator(workerId, centerId);
         }
         return instance;
+    }
+
+    public static IdGenerator getInstance() {
+        if (Objects.isNull(instance)) {
+            instance = new IdGenerator(10L, 0L);
+        }
+        return instance;
+    }
+
+    public static void setSplit(String split) {
+        SPLIT = split;
+    }
+
+    public static String getSplit(String split) {
+        return SPLIT;
+    }
+
+    public static String getId(String pre) {
+        return pre + SPLIT + getId();
+    }
+
+    public static Long getId(long workerId, long centerId) {
+        return getInstance(workerId, centerId).nextId();
     }
 
     public static Long getId() {
         return getInstance().nextId();
     }
 
-    public static String getId(String pre) {
-        return pre + "_" + getId();
-    }
 
 }
