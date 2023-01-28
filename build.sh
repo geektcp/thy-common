@@ -4,6 +4,7 @@ git pull
 start_time=`date + '%Y-%m-%d %H:%M:%S'`
 
 mvn clean deploy -P release,gpg
+# mvn clean javadoc:jar deploy -P release,gpg 
 
 end_time=`date + '%Y-%m-%d %H:%M:%S'`
 sc=$(date --date="${start_time}" +%s)
